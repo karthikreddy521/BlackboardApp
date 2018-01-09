@@ -3,31 +3,36 @@ package com.school.blackboard.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.school.blackboard.model.User;
 import com.school.blackboard.service.UserService;
 
 @Controller
 @RequestMapping("/")
-public class UserController {
+public class UserController{
 
-	@Autowired 
-	UserService userService;
- 
+@Autowired 
+UserService userService;
+
+//TO DO
+Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
 @RequestMapping(value="/users",method=RequestMethod.GET)
-  public String getAllUsers(Model model){
-	model.addAttribute("users",userService.getUserDetails());
-    return "users";
+@ResponseBody
+  public List<User> getAllUsers(){
+    return userService.getUserDetails();
   }
 
 @RequestMapping(value="/{userId}",method=RequestMethod.GET)
+@ResponseBody
 public User getUserById(@PathVariable int userId){
   return userService.getUserDetailsById(userId);
 }
@@ -46,8 +51,9 @@ public void insertUser(@RequestBody User user ){
 }
 @RequestMapping(value="",method=RequestMethod.GET)
 public String sayHi(){
-   return "hi";
+   return "MainLogin";
 }
+ 
 
 }
 
