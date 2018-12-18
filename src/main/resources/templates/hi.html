@@ -1,10 +1,40 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-    <p>Get your greeting <a href="/users">here</a></p>
-</body>
+    <head>
+        <title>Hello jQuery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/hello.js"></script>
+      <!--   $(document).ready(function() {
+      $.ajax({
+          url: "http://localhost:8080/users"
+      	}).then(function(data) {
+         $('.greeting-id').append(data[1].userId);
+         $('.greeting-content').append(data[1].firstName);
+      	});
+		}); 
+		var xhr = new XMLHttpRequest();
+		var url = "http://localhost:8080/users";
+		xhr.open("GET", url, true);
+		xhr.setRequestHeader("Content-type", "application/json");
+		xhr.onreadystatechange = function () {
+		    if (xhr.readyState === 4 && xhr.status === 200) {
+		    
+		        var json = JSON.parse(xhr.responseText);
+		    console.log(json);
+		   // document.write(json[0].userId+','+json[2].firstName);
+		    document.getElementById("test").innerHTML=json[0].userId+','+json[2].firstName;
+		    
+		    }
+		};
+		xhr.send(); -->
+        
+        
+    </head>
+
+    <body>
+        <div>
+            The ID is<p id="test" class="greeting-id"> </p>
+            <p class="greeting-content">The content is </p>
+        </div>
+    </body>
 </html>
