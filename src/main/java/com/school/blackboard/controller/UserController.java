@@ -22,11 +22,10 @@ public class UserController {
 	@Autowired 
 	UserService userService;
  
-@RequestMapping(value="",method=RequestMethod.GET)
+@RequestMapping(value="/all",method=RequestMethod.GET)
 @ResponseBody
-  public List<User> getAllUsers(Model model){
-	return userService.getUserDetails();
-    
+public String getAllUsers(){
+	  return "hello world"
   }
 
 @RequestMapping(value="/{userId}",method=RequestMethod.GET)
