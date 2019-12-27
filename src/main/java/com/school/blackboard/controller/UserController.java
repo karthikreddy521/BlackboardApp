@@ -25,7 +25,7 @@ public class UserController {
 @RequestMapping(value="/all",method=RequestMethod.GET)
 @ResponseBody
 public String getAllUsers(){
-	  return "hello world"
+	  return "hello world";
   }
 
 @RequestMapping(value="/{userId}",method=RequestMethod.GET)
