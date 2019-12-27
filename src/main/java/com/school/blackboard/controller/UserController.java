@@ -24,7 +24,8 @@ public class UserController {
  
 @RequestMapping(value="",method=RequestMethod.GET)
 @ResponseBody
-  public List<User> getAllUsers(Model model){
+//  public List<User> getAllUsers(Model model){
+	public String getAllUsers(Model model){
 //	return userService.getUserDetails();
 	  return "hello world";
     
